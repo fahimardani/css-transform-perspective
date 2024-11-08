@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+article {
+  position: absolute;
+  inset: 50%;
+  translate: -50% -50%;
+  width: 100px;
+  height: 150px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: Rotate 10s linear infinite;
+  z-index: 2;
+
+  &:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+  &::after {
+    content: "Frieren Characters";
+    font-family: "Bona Nova SC", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;
+    background: linear-gradient(to bottom, #0ACBF4, #FA0CF4);
+    border: 2px solid gold;
+    border-bottom: none;
+    background-clip: text;
+    color: transparent;
+  }
+  .items {
+    position: absolute;
+    inset: 0;
+    transform: 
+      rotateY(calc((var(--position) - 1) * (360/var(--quantity)) * 1deg))
+      translateZ(250px);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      center {
+        letter-spacing: .2rem;
+      }
+  }
+}
+@keyframes Rotate{
+  from {
+    transform: perspective(1000px) rotateX(-15deg) rotateY(0deg);
+  } to {
+    transform: perspective(1000px) rotateX(-15deg) rotateY(360deg);
+  }
+}
+
+figure {
+  display: flex;
+  align-items: center;
+
+  figcaption a {
+    color: #242424;
+    text-decoration: none;
+    margin-left: .5rem;
+    font-size: 1.2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active {
+      font-size: 1rem;
+    }
+  }
+}
